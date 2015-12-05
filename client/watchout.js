@@ -15,13 +15,12 @@ for(var i = 0; i < 10; i++){
   );
 };
 
-var update = function(enemyCoordinates){
+var enemyUpdate = function(enemyCoordinates){
   //JOIN Data to DOM elements
   var enemies = d3.select('svg').selectAll('.enemy')
     .data(enemyCoordinates, function(d){
       return d.name;
     })
-  console.log("logged");
   //UPDATE
   enemies.transition().duration(1500)
     .attr('cx', function(d){
@@ -40,14 +39,43 @@ var update = function(enemyCoordinates){
     .attr('cy', function(d){return d.y})
     .attr('class','enemy');
 
-  //enter and update
-  //exit;
-
 }
 //initial call to setup enemies
-update(enemyObjects);
+enemyUpdate(enemyObjects);
 
 
 //enemy movement
-setInterval(function(){ update(enemyObjects)},1000);
+
+setInterval(function(){ enemyUpdate(enemyObjects)},1000);
+
+//score
+
+var count = 0;
+
+setInterval(function(){
+  count++;
+  d3.select('.current').text('Current Score: ' + count);
+},50)
+
+
+//initial update
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
