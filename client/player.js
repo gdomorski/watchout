@@ -17,7 +17,7 @@ var updatePlayer = function(player, event){
 
   var playerDOM = d3.select('svg').selectAll('.player')
     .data(player, function(d){
-      return d.name
+      return d.name 
     })
 
   //UPDATE
@@ -39,7 +39,7 @@ var updatePlayer = function(player, event){
   //ENTER
   playerDOM.enter()
     .append('circle')
-    .attr('r',10)
+    .attr('r',20)
     .attr('cx',width/2)
     .attr('cy',height/2)
     .attr('class','player')
@@ -49,6 +49,9 @@ var updatePlayer = function(player, event){
 updatePlayer(playerPosition);
 
 var playerSelection = d3.select("svg").selectAll(".player");
+
+
+
 
 
 
